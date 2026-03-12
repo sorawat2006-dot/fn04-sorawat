@@ -1,19 +1,18 @@
-import styles from "./card.module.css";
+type CardProps = {
+  venueName: string;
+  imgSrc: string;
+};
 
-export default function Card() {
+export default function Card({ venueName, imgSrc }: CardProps) {
   return (
-    <div className={styles.card}>
+    <div className="w-72 overflow-hidden rounded-lg bg-white shadow-md">
       <img
-        src="https://images.unsplash.com/photo-1519167758481-83f550bb49b3"
-        alt="venue"
-        className={styles.cardImage}
+        src={imgSrc}
+        alt={venueName}
+        className="h-48 w-full object-cover"
       />
-      <div className={styles.cardBody}>
-        <h2>The Bloom Pavilion</h2>
-        <p>
-          A stunning bouquet hall where love blossoms and unforgettable memories
-          are made.
-        </p>
+      <div className="p-4">
+        <h2 className="text-2xl font-bold">{venueName}</h2>
       </div>
     </div>
   );
